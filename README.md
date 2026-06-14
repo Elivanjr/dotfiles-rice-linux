@@ -1,6 +1,10 @@
 # my-hyprland/sway-dotfiles
  Repositório dedicado ao meu aprendizado e experimentos com o compositor de janelas Sway e Sway-FX e talvez o Hyprland e niri
 
+> [!NOTE]
+> Obs: essa config no momento é um tipo de Frankenstein maluco e... coisado...
+> Então se for usar, adapte o que for necessário.
+
 # *Hyprland*
 <img src="https://raw.githubusercontent.com/Elivanjr/my-sway-dotfiles/main/.config/screenshots/hyprland.png" alt="Screenshot do Hyprland" width="500" />
 
