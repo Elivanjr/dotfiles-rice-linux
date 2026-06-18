@@ -1,0 +1,9 @@
+[Unit]
+Description=Checa se o config.ini do waypaper mudou e atualiza os temas
+
+[Path]
+PathChanged=%h/.config/waypaper/config.ini
+Unit=wallust-theme.service
+
+[Install]
+WantedBy=default.target
