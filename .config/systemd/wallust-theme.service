@@ -1,0 +1,7 @@
+[Unit]
+Description=Aplica o tema que o wallust pega no arquivo de configuracao do waypaper.
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/scripts/theme.sh
+#tenha certeza de por o script na pasta correta... ou mude a pasta
