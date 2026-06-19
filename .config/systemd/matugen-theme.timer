@@ -1,0 +1,10 @@
+[Unit]
+Description=Temporizador para atualizar o tema
+
+[Timer]
+OnBootSec=1s
+OnUnitActiveSec=300ms
+Unit=matugen-theme.service
+
+[Install]
+WantedBy=timers.target
