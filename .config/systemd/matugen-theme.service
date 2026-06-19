@@ -1,0 +1,6 @@
+[Unit]
+Description=Aplica o tema do Matugen usando o wallpaper atual do Waypaper
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/scripts/matugenColors.sh
