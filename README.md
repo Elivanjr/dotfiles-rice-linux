@@ -11,7 +11,7 @@
 # *Hyprlock*
 <img src="https://raw.githubusercontent.com/Elivanjr/my-sway-dotfiles/main/.config/screenshots/hyprlock_.png" alt="Screenshot do Hyprlock" width="500" />
 
-# *Matugen*
+# *Matugen + Waypaper + systemd*
 <img src="https://raw.githubusercontent.com/Elivanjr/my-sway-dotfiles/main/.config/screenshots/matugen.gif" alt="Screenshot do Hyprlock" width="500" />
 
 
