@@ -12,7 +12,7 @@
 <img src="https://raw.githubusercontent.com/Elivanjr/my-sway-dotfiles/main/.config/screenshots/hyprlock_.png" alt="Screenshot do Hyprlock" width="500" />
 
 # *Matugen*
-<video src="https://githubusercontent.com/Elivanjr/my-sway-dotfiles/main/.config/screenshots/matugen.mp4" width="500" controls autoplay loop muted></video>
+<video src="https://githubusercontent.com/Elivanjr/my-sway-dotfiles/main/.config/screenshots/matugen.mp4"> </video>
 
 
 ## My Setup
