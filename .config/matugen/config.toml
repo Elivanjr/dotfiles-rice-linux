@@ -9,3 +9,8 @@ post_hook = "pkill -SIGUSR1 kitty"
 [templates.hyprland]
 input_path = "~/.config/matugen/templates/hyprland-colors.conf"
 output_path = '~/.config/hypr/colors.conf'
+
+[templates.waybar]
+input_path = '/home/bixcoitu/.config/matugen/templates/matugen-waybar.css'
+output_path = '~/.config/waybar/colors.css'
+post_hook = 'pkill -SIGUSR2 waybar'
