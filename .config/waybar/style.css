@@ -1,3 +1,4 @@
+@import "colors.css";
 * {
 	border: none;
 	border-radius: 10px;
@@ -20,7 +21,7 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-        color: transparent;
+  color: transparent;
 	background: transparent;
 }
 #workspaces {
@@ -29,13 +30,13 @@ window#waybar.hidden {
 	font-size: 4px;
 	margin-bottom: 0px;
 	border-radius: 10px;
-	background: #161320;
+	background: @background;
 	transition: none;
 }
 
 #workspaces button {
 	transition: none;
-	color: #B5E8E0;
+	color: @color10;
 	background: transparent;
 	font-size: 16px;
 	border-radius: 2px;
@@ -49,9 +50,9 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-	color: #F06292;
-        border-top: 3px solid #F06292;
-        border-bottom: 3px solid #F06292;
+	color: @foreground;
+        border-top: 3px solid @foreground;
+        border-bottom: 3px solid @foreground;
 }
 
 #workspaces button:hover {
@@ -75,8 +76,8 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #bd93f9;
+	color: @background;
+	background: @color10;
 }
 
 #pulseaudio {
@@ -88,7 +89,7 @@ window#waybar.hidden {
 	border-radius: 10px;
 	transition: none;
 	color: #1A1826;
-	background: #FAE3B0;
+	background: @color10;
 }
 
 #battery {
@@ -105,7 +106,7 @@ window#waybar.hidden {
 
 #battery.charging, #battery.plugged {
 	color: #161320;
-    background-color: #B5E8E0;
+    background-color: @color10;
 }
 
 #battery.critical:not(.charging) {
@@ -120,8 +121,8 @@ window#waybar.hidden {
 
 @keyframes blink {
     to {
-        background-color: #BF616A;
-        color: #B5E8E0;
+        background-color: @color1;
+        color: @color0;
     }
 }
 
@@ -145,7 +146,7 @@ window#waybar.hidden {
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
-	background: #ABE9B3;
+	background: @color13;
 	/*background: #1A1826;*/
 }
 
@@ -157,8 +158,8 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #DDB6F2;
+	color: @background;
+	background: @color13;
 }
 
 #cpu {
@@ -169,8 +170,8 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #96CDFB;
+	color: @background;
+	background: @selection_foreground;
 }
 
 #tray {
@@ -181,8 +182,7 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-	color: #B5E8E0;
-	background: #161320;
+	background: @background;
 }
 
 #custom-launcher {
@@ -193,8 +193,8 @@ window#waybar.hidden {
 	padding-right: 5px;
 	border-radius: 10px;
 	transition: none;
-    color: #89DCEB;
-    background: #161320;
+    color: @source_color;
+    background: @background;
 }
 
 #custom-power {
@@ -207,8 +207,8 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #F28FAD;
+	color: @background;
+	background: @color1;
 }
 
 #custom-wallpaper {
@@ -231,11 +231,7 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #161320;
-	background: #F2CDCD;
+	color: @background;
+	background: @color13;
 }
 
-#custom-cava {
-font-family: monospace;
-font-size: 14px;
-}
