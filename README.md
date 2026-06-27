@@ -12,7 +12,7 @@
 <img src="https://raw.githubusercontent.com/Elivanjr/my-sway-dotfiles/main/.config/screenshots/hyprlock_.png" alt="Screenshot do Hyprlock" width="500" />
 
 # *Matugen + Waypaper + systemd*
-<img src="https://raw.githubusercontent.com/Elivanjr/my-sway-dotfiles/main/.config/screenshots/matugen.gif" alt="Screenshot do Hyprlock" width="500" />
+<img src="https://raw.githubusercontent.com/Elivanjr/my-sway-dotfiles/main/.config/matugen/matugen_atual.gif" alt="gif com matugen" width="500" />
 
 
 ## My Setup
