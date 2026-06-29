@@ -1,5 +1,5 @@
 # my-hyprland/sway-dotfiles
- Repositório dedicado ao meu aprendizado e experimentos com o compositor de janelas Sway e Sway-FX e talvez o Hyprland e niri
+ Repositório dedicado ao meu aprendizado e experimentos com o compositor de janelas Sway e Hyprland
 
 > [!NOTE]
 > Obs: essa config no momento é um tipo de Frankenstein maluco e... coisado...
