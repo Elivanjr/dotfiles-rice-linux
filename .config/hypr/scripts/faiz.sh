@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#A tecla 5 for pressionda 3 vezes??? STANDING BY...
+# A tecla 5 for pressionda 3 vezes??? STANDING BY...
 COUNT_FILE="$HOME/.cache/faiz/count"
 
 count=$(cat "$COUNT_FILE" 2>/dev/null || echo 0)
