@@ -18,11 +18,6 @@ if echo "$MPD_STATUS" | grep -q "\[playing\]\|\[paused\]"; then
 fi
 
 for p in $(playerctl -l); do
-  # Ignorar Spotify
-  if [[ "$p" == *"spotify"* ]]; then
-    continue
-  fi
-
   STATUS=$(playerctl -p "$p" status 2>/dev/null)
 
   if [ "$STATUS" = "Playing" ] || [ "$STATUS" = "Paused" ]; then
@@ -49,6 +44,8 @@ if [[ "$PLAYER" == *"brave"* ]]; then
   APP_ICON=" "
 elif [[ "$PLAYER" == *"vlc"* ]]; then
   APP_ICON="󰕼 "
+elif [[ "$PLAYER" == *"spotify"* ]]; then
+  APP_ICON=" "
 else
   APP_ICON=" "
 fi
