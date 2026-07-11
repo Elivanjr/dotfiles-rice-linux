@@ -1,0 +1,10 @@
+* {
+    background: ;
+    background-alt: ;
+    background-op: 90;
+    foreground: ;
+    selected: ;
+    active: ;
+    urgent: ;
+}
+

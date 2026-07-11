@@ -1,0 +1,14 @@
+/*
+ * Matugen-generated colors for Rofi
+ * (Based on your pywal script)
+ */
+* {
+    background:     #191112;
+    background-alt: #191112;
+    background-op:  #19111299;
+    foreground:     #f0dee0;
+    selected:       #ffb2be;
+    active:         #e5bdc1;
+    urgent:         #ffb4ab;
+}
+
