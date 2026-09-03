@@ -13,6 +13,14 @@ local M = require("variables")
 -- Rofi + Clipboard
 hl.bind(M.mod .. " + SHIFT + S", hl.dsp.exec_cmd("~/.config/rofi/clipboard.sh"))
 
+--hl.bind(
+--	M.mod .. " + SHIFT + S",
+--	hl.dsp.exec_cmd("kitty --class clipse -e clipse", {
+--		float = true,
+--		size = { 622, 652 },
+--		stay_focused = true,
+--	})
+--)
 -- Terminal
 hl.bind(M.mod .. " + T", hl.dsp.exec_cmd(M.term))
 
@@ -115,6 +123,11 @@ hl.bind(
 )
 
 hl.bind(
+	M.mod .. "+ KP_Subtract",
+	hl.dsp.exec_cmd("mpv --no-video --really-quiet yes ~/.config/hypr/scripts/mesaSom/ai.wav >/dev/null 2>&1 &")
+)
+
+hl.bind(
 	M.mod .. " + KP_ADD",
 	hl.dsp.exec_cmd("mpv --no-video --really-quiet yes ~/.config/hypr/scripts/mesaSom/axel2.wav >/dev/null 2>&1 &")
 )
@@ -160,7 +173,6 @@ hl.bind(M.mod .. " + SPACE", hl.dsp.layout("swapwithmaster"))
 hl.bind(M.mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 
 -- Volume
-
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pactl set-sink-mute @DEFAULT_SINK@ toggle"))
 
 hl.bind(
@@ -168,7 +180,8 @@ hl.bind(
 	hl.dsp.exec_cmd(
 		"pactl set-sink-volume @DEFAULT_SINK@ -5% && "
 			.. "mpv /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
-	)
+	),
+	{ locked = true, repeating = true }
 )
 
 hl.bind(
@@ -176,7 +189,8 @@ hl.bind(
 	hl.dsp.exec_cmd(
 		"pactl set-sink-volume @DEFAULT_SINK@ +5% && "
 			.. "mpv /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
-	)
+	),
+	{ locked = true, repeating = true }
 )
 
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("pactl set-source-mute @DEFAULT_SOURCE@ toggle"))
@@ -191,18 +205,21 @@ hl.bind(M.mod .. " + MINUS", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(M.mod .. " + SHIFT + MINUS", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Redimensionar janelas, mexendo nesse ainda
-hl.bind(
-	M.mod .. " + CTRL + " .. M.left,
-	hl.dsp.window.resize({ x = -20, y = 0, relative = true }),
-	{ repeating = true }
-)
+-- Entrar no modo resize
+hl.bind(M.mod .. " + R", hl.dsp.submap("resize"))
 
-hl.bind(
-	M.mod .. " + CTRL + " .. M.right,
-	hl.dsp.window.resize({ x = 20, y = 0, relative = true }),
-	{ repeating = true }
-)
+-- Modo resize
+hl.define_submap("resize", function()
+	-- ← / →
+	hl.bind("left", hl.dsp.window.resize({ x = -20, y = 0, relative = true }), { repeating = true })
 
-hl.bind(M.mod .. " + CTRL + " .. M.up, hl.dsp.window.resize({ x = 0, y = -20, relative = true }), { repeating = true })
+	hl.bind("right", hl.dsp.window.resize({ x = 20, y = 0, relative = true }), { repeating = true })
 
-hl.bind(M.mod .. " + CTRL + " .. M.down, hl.dsp.window.resize({ x = 0, y = 20, relative = true }), { repeating = true })
+	-- ↑ / ↓
+	hl.bind("up", hl.dsp.window.resize({ x = 0, y = -20, relative = true }), { repeating = true })
+
+	hl.bind("down", hl.dsp.window.resize({ x = 0, y = 20, relative = true }), { repeating = true })
+
+	-- ESC = sair do modo resize
+	hl.bind("escape", hl.dsp.submap("reset"))
+end)
