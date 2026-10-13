@@ -6,7 +6,7 @@
 > Então se for usar, adapte o que for necessário.
 
 # *Hyprland*
-<img src="https://raw.githubusercontent.com/Elivanjr/my-sway-dotfiles/main/.config/screenshots/hyprland.png" alt="Screenshot do Hyprland" width="500" />
+<img src="https://raw.githubusercontent.com/Elivanjr/my-sway-dotfiles/main/.config/screenshots/newHypr.png" alt="Screenshot do Hyprland" width="500" />
 
 # *Hyprlock*
 <img src="https://raw.githubusercontent.com/Elivanjr/my-sway-dotfiles/main/.config/screenshots/hyprlock_.png" alt="Screenshot do Hyprlock" width="500" />
