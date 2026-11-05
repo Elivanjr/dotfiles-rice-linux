@@ -1,0 +1,73 @@
+diff --git a/logic/PhoneSettings.qml b/logic/PhoneSettings.qml
+index 9b8bbd0..06c31f9 100644
+--- a/logic/PhoneSettings.qml
++++ b/logic/PhoneSettings.qml
+@@ -61,7 +61,7 @@ Scope {
+ 
+   property bool setBtScan: false
+ 
+-  property var setBtDevs: []                // {mac, name, paired, connected}
++  property var setBtDevs: []                // {mac, name, paired, connected, battery (-1 = sem info)}
+ 
+   // bateria
+   property string setProfile: ""
+@@ -313,7 +313,9 @@ Scope {
+ 
+           R.push({
+             k: "dev:" + i, t: d.name !== "" ? d.name : d.mac,
+-            d: d.connected ? "Conectado" : (d.paired ? "Pareado" : "Disponível"),
++            d: d.connected
++              ? "Conectado" + (d.battery >= 0 ? " · " + d.battery + "%" : "")
++              : (d.paired ? "Pareado" : "Disponível"),
+             kind: "dev", on: d.connected
+           });
+         }
+@@ -658,6 +660,16 @@ Scope {
+       case "$info" in *"Paired: yes"*) p=1;; esac
+       case "$info" in *"Connected: yes"*) c=1;; esac
+       echo "dev|$mac|$p|$c|$name"
++      if [ "$c" = 1 ]; then
++        b=$(printf '%s\\n' "$info" | sed -n 's/^.*Battery Percentage:.*(\\([0-9]*\\)).*$/\\1/p' | head -1)
++        if [ -z "$b" ] && command -v upower >/dev/null 2>&1; then
++          u=$(upower -e 2>/dev/null | grep -i "$(echo "$mac" | tr ':' '_')" | head -1)
++          if [ -n "$u" ]; then
++            b=$(upower -i "$u" 2>/dev/null | sed -n 's/^ *percentage: *\\([0-9]*\\)%.*$/\\1/p' | head -1)
++          fi
++        fi
++        if [ -n "$b" ]; then echo "bat|$mac|$b"; fi
++      fi
+     done
+ 
+   `
+@@ -830,6 +842,7 @@ Scope {
+     } else if (page === "bluetooth") {
+       const kv = setKv(text);
+       const devs = [];
++      const bats = {};
+ 
+       setBtOn = kv.power === "1";
+ 
+@@ -841,11 +854,23 @@ Scope {
+             mac: f[1],
+             paired: f[2] === "1",
+             connected: f[3] === "1",
++            battery: -1,
+             name: f.slice(4).join("|").trim()
+           });
++        } else if (l.indexOf("bat|") === 0) {
++          const f = l.split("|");
++          const v = parseInt(f[2]);
++
++          if (!isNaN(v))
++            bats[f[1]] = Math.max(0, Math.min(100, v));
+         }
+       }
+ 
++      for (const d of devs) {
++        if (d.connected && bats[d.mac] !== undefined)
++          d.battery = bats[d.mac];
++      }
++
+       devs.sort((a, b) => (b.connected - a.connected) || (b.paired - a.paired));
+       setPut("setBtDevs", devs);
+     } else if (page === "battery") {
