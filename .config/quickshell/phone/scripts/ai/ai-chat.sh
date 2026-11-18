@@ -1,0 +1,1 @@
+../../apps/ai/helper/ai-chat.sh
